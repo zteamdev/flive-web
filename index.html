@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Flive - Your flights in live</title>
+
+        <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/cover.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="googlemaps"></div>
+    
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+          <div class="masthead clearfix">
+
+            <div class="inner">
+              <h3 class="masthead-brand">Flive</h3>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">your flights in live.</h1>
+            <p class="lead">Imagine being able to look up your loved one’s flight and be able to see what they see out the window in near real-time.</p>
+            <p class="lead">
+              <a href="#" class="btn btn-lg btn-default">join a channel</a>
+            </p>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Flive, by <a href="https://twitter.com/codexorange">@codexorange</a> & <a href="https://twitter.com/codexorange">@daaherrera</a></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Include the Google Maps API library - required for embedding maps -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+     
+    <script type="text/javascript">
+     
+    // The latitude and longitude of your business / place
+    var position = [-9.2435385, -75.0195145];
+     
+    function showGoogleMaps() {
+     
+        var latLng = new google.maps.LatLng(position[0], position[1]);
+     
+        var mapOptions = {
+            zoom: 3, // initialize zoom level - the max value is 21
+            streetViewControl: false, // hide the yellow Street View pegman
+            scaleControl: true, // allow users to zoom the Google Map
+            mapTypeId: google.maps.MapTypeId.SATELLITE,
+            center: latLng
+        };
+     
+        map = new google.maps.Map(document.getElementById('googlemaps'),
+            mapOptions);
+     
+
+    }
+     
+    google.maps.event.addDomListener(window, 'load', showGoogleMaps);
+    </script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
