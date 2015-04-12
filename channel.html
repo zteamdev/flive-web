@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+	<title>Flive</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/channel.css">
+</head>
+<body>
+
+	<div class="container">
+
+		<h1 class="title">Flive</h1>
+		<h4 style="color:#ccc">Vuelo número 208 de American Airlines</h4>
+    <div class="flight-info" style="color:white">
+    Salida: Aeropuerto Internacional de Los Angeles - 10:06AM PDT <br/>
+   LLegada: Aeropuerto Internacional de Miami - 05:22PM EDT<br/>
+    Aeronave: Boeing 777-200 <br/>
+    Altitud: 39.000 pies <br/>
+    Distancia : 2.406 mi <br/>
+  </div>
+		<div id="messages" class="col-lg-8 col-lg-offset-2"></div>
+
+
+	</div>
+
+	<div id="event">
+		<div class="container">
+			
+			<div class="col-lg-4 col-lg-offset-2">
+				<input type="text" name="username" id="username" class="form-control" placeholder="Usuario"/>
+				<input type="hidden" name="photo" id="photo" />
+			</div>
+			
+			<div class="col-lg-4">
+				<form id="uploadForm" action="http://45.55.129.136/media/upload" method="POST" enctype="multipart/form-data">
+					<input type="file" name="file" id="photo" style="width:200px"/>
+					<button id="upload" class="btn btn-default"><i class="glyphicon glyphicon-camera"></i> Subir foto</button>
+				</form>
+			</div>
+
+			<div class="col-lg-6 col-lg-offset-2" style="margin-top:20px">
+				<textarea name="message" id="message" placeholder="Mensaje" class="form-control" style="display:inline-block"></textarea> 
+			</div>
+			<div class="col-lg-4">
+				<button style="margin-top:20px" type="submit" id="sendmessage" class="btn btn-success"><i class="glyphicon glyphicon-share-alt"></i> Enviar</button>
+			</div>
+		</div>
+		
+	</div>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="http://45.55.129.136/socket.io/socket.io.js"></script>
+	<script src="js/socket.js"></script>
+	<script src="js/jquery.form.js"></script>
+	<script>
+		$('#uploadForm').submit(function() {
+      $(this).ajaxSubmit({
+        error: function(xhr) {
+          status('Error: ' + xhr.status);
+        },
+        success: function(response) {
+          $("#photo").attr("value", response.path);
+        }
+    	});
+    	return false;
+    });    
+	</script>
+
+</body>
+</html>
