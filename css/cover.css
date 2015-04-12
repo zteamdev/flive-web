@@ -178,11 +178,10 @@ body {
     top: 0;
     left: 0;
     z-index: 0;
-    margin-top: 50px;
 }
 .navbar-inverse {
   background-color: #EB540A!important;
-  border-color: #B34914!important;
+  border-color: #EB540A!important;
 }
 
 .navbar-brand{
