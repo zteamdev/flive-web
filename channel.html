@@ -58,10 +58,12 @@
 	<script>
 		$('#uploadForm').submit(function() {
       $(this).ajaxSubmit({
+        $('#sendmessage').attr('disabled', 'disabled');
         error: function(xhr) {
           status('Error: ' + xhr.status);
         },
         success: function(response) {
+          $('#sendmessage').removeAttr('disabled');
           $("#photo").attr("value", response.path);
         }
     	});

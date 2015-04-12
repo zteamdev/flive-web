@@ -75,7 +75,7 @@
 
                         $.ajax
                 ({
-                  url: "http://localhost/flive-web/data/airports.json",
+                  url: "http://flive.zdev.io/data/airports.json",
                   async : false
                 }).fail(function(xhr, status, error) {
                     alert(xhr.responseText);
@@ -115,7 +115,7 @@
                             position: new google.maps.LatLng(29.9569172,-95.3457192),
                             title: "Vuelo 208 de American Airlines",
                             map : map,
-                            url : "http://localhost/flive-web/channel.html"
+                            url : "http://flive.zdev.io/channel.html"
                             // icon : image
             });
 
